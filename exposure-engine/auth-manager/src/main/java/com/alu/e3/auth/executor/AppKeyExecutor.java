@@ -116,10 +116,14 @@ public class AppKeyExecutor implements IAuthExecutor{
 			}
 			
 			// remove the credential from URL
-			removeHttpQueryValue(exchange, keyName+"="+authKey);
+            // LESTES: we are using the api key for reporting, so we do not want it to be removed
+            // before passing the request along to our servers.
+			//removeHttpQueryValue(exchange, keyName+"="+authKey);
 			
 			// remove the credential from Header
-			exchange.getIn().removeHeader(headerName);
+            // LESTES: we are using the api key for reporting, so we do not want it to be removed
+            // before passing the request along to our servers.
+			//exchange.getIn().removeHeader(headerName);
 	
 			//Call AuthManager
 			try {
